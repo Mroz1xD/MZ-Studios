@@ -1,0 +1,39 @@
+html{
+    color: white;
+}
+
+#header{
+    background-color: black;
+}
+
+#menu{
+    width: 500px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+li{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+h2{
+    text-align: center;
+}
+
+#onas p{
+    font-size: 15px;
+}
+
+#footer{
+    background-color: black;
+}
