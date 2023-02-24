@@ -26,6 +26,9 @@ switch($a){
 	case 'logowanie':
 		require_once("./src/sites/logowanie.php");
 	break;
+	case'rejestracja':
+		require_once("./src/sites/rejestracja.php");
+	break;
 }
 
 require_once("./src/skelet/footer.php");
