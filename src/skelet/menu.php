@@ -27,6 +27,11 @@
         <a class="nav-link active" aria-current="page" href="?a=logowanie">Logowanie</a>
     </li>
 </div>
+<?php
+if( isset($_SESSION['zalogowany']) ){ 
+	echo "<p>" . "Zostałeś zalogowany jako: " .$_SESSION['zalogowany']['login'] . " " . "<a href='?a=logowanie&logout=1' >Wylogowanie</a>" . "</p>";
+}
+?>
 </div>
 
 </div>

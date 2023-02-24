@@ -25,15 +25,37 @@
 <div class="col-12">
 <button class="btn btn-primary" type="submit" name="zal">Zaloguj się</button>
 </div>
-</form> 
-</div>
 <?php
 
+if( isset( $_GET['logout'] ) == 1 ){
+    unset( $_SESSION['zalogowany'] );
+    header("Location: ./");
+    exit();
+}
+
 if( isset($_POST['zal']) && isset($_POST['login']) && isset($_POST['mail']) && isset($_POST['haslo']) ){
-    $sql = "SELECT login, haslo FROM uzytkownicy WHERE login = '{$_POST['login']}' AND haslo = '{$_POST['haslo']}'";
+    $login = $_POST['login'];
+    $mail = $_POST['mail'];
+    $haslo = $_POST['haslo'];
+    $sql = "SELECT login, mail, haslo FROM uzytkownicy WHERE login = '{$login}'AND mail = '{$mail}' AND haslo = '{$haslo}'";
     $sts = $PDO->prepare($sql);
     $sts->execute();
-    
+    $wynik = $sts->fetchAll(PDO::FETCH_ASSOC);
+    if( count($wynik) === 0 ){
+        echo "<p>Wystąpił błąd podczas logowania, proszę jeszcze raz spróbować. Jeśli nie posiadasz konto no najpierw musisz je założyć.</p>";
+    }else{
+        foreach( $wynik as $k => $v ){
+            $LOGIN = $v['login'];
+            $MAIL = $v['mail'];
+            $HASLO = $v['haslo'];
+        }
+        echo "<p>Pomyślnie zalogowano jako " . $LOGIN . "!</p>";
+        $_SESSION['zalogowany']['login'] = $_POST['login'];
+        header("Location: ./");
+        exit();
+    }
 }
 
 ?>
+</form> 
+</div>
