@@ -43,17 +43,21 @@ if( isset($_POST['zal']) && isset($_POST['login']) && isset($_POST['mail']) && i
     $wynik = $sts->fetchAll(PDO::FETCH_ASSOC);
     if( count($wynik) === 0 ){
         echo "<p>Wystąpił błąd podczas logowania, proszę jeszcze raz spróbować. Jeśli nie posiadasz konto no najpierw musisz je założyć.</p>";
-    }else{
+    }elseif(count($wynik) === 1){
         foreach( $wynik as $k => $v ){
+            $ID = $v['id'];
             $LOGIN = $v['login'];
             $MAIL = $v['mail'];
             $HASLO = $v['haslo'];
         }
         echo "<p>Pomyślnie zalogowano jako " . $LOGIN . "!</p>";
-        $_SESSION['zalogowany']['login'] = $_POST['login'];
+        $_SESSION['zalogowany']['id'] = $ID;
+        $_SESSION['zalogowany']['login'] = $LOGIN;
         header("Location: ./");
         exit();
-    }
+    }/*elseif(count($wynik) > 1){
+        echo "<p>Wystąpił błąd podczas logowania, proszę jeszcze raz spróbować. Jeśli nie posiadasz konto no najpierw musisz je założyć.</p>";
+    }*/
 }
 
 ?>

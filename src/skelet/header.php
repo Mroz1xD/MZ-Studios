@@ -10,4 +10,4 @@
 </head>
 <body>
 <div id="header" class="navbar navbar-expand-lg bg-body-black">
-<img src="./src/graphic/mzstudioslogo.png" alt="Błąd, nie można było załadować pliku" height="100px" id="logo" class="rounded float-start img-fluidw">
+<a href="./"><img src="./src/graphic/mzstudioslogo.png" alt="Błąd, nie można było załadować pliku" height="100px" id="logo" class="rounded float-start img-fluidw"></a>

@@ -15,21 +15,26 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produkty</a>
 
 	<ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Grand Strife Całe Uniwersum</a></li>
-        <li><a class="dropdown-item" href="#">Grand Asalut</a></li>
+        <li><a class="dropdown-item" href="?a=gscu">Grand Strife Całe Uniwersum</a></li>
+        <li><a class="dropdown-item" href="">Grand Asalut</a></li>
         <li><a class="dropdown-item" href="?a=produkty">Wszystkie</a></li>
     </ul>
 	</li>
     
 	</ul>
+<?php
 
-	<li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="?a=logowanie">Logowanie</a>
-    </li>
+if( !isset($_SESSION['zalogowany']) ){
+    echo "<li class='nav-item'>
+            <a class='nav-link active' aria-current='page' href='?a=logowanie'>Logowanie</a>
+        </li>";
+}
+
+?>
 </div>
 <?php
 if( isset($_SESSION['zalogowany']) ){ 
-	echo "<p>" . "Zostałeś zalogowany jako: " .$_SESSION['zalogowany']['login'] . " " . "<a href='?a=logowanie&logout=1' >Wylogowanie</a>" . "</p>";
+	echo "<p>" . "Zostałeś zalogowany jako: <a href='?a=profil'><b>" .$_SESSION['zalogowany']['login'] . "</b></a> " . "<a href='?a=logowanie&logout=1' >Wylogowanie</a>" . "</p>";
 }
 ?>
 </div>

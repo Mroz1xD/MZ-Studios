@@ -23,11 +23,20 @@ switch($a){
 	case 'produkty':
 		require_once("./src/sites/produkty.php");
 	break;
+	case 'gscu':
+		require_once("./src/sites/gscu.php");
+	break;
+	case 'gsp':
+		require_once("./src/sites/gsp.php");
+	break;
 	case 'logowanie':
 		require_once("./src/sites/logowanie.php");
 	break;
 	case'rejestracja':
 		require_once("./src/sites/rejestracja.php");
+	break;
+	case 'profil':
+		require_once("./src/sites/profil.php");
 	break;
 }
 
