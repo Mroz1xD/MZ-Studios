@@ -37,7 +37,7 @@ if( isset($_POST['zal']) && isset($_POST['login']) && isset($_POST['mail']) && i
     $login = $_POST['login'];
     $mail = $_POST['mail'];
     $haslo = $_POST['haslo'];
-    $sql = "SELECT login, mail, haslo FROM uzytkownicy WHERE login = '{$login}'AND mail = '{$mail}' AND haslo = '{$haslo}'";
+    $sql = "SELECT id, login, mail, haslo FROM uzytkownicy WHERE login = '{$login}'AND mail = '{$mail}' AND haslo = '{$haslo}'";
     $sts = $PDO->prepare($sql);
     $sts->execute();
     $wynik = $sts->fetchAll(PDO::FETCH_ASSOC);
